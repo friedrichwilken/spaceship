@@ -1,10 +1,12 @@
-mod astroids;
+mod asset_loader;
+mod asteroids;
 mod camera;
 mod debug;
 mod movement;
 mod spaceship;
 
-use astroids::AstroidPlugin;
+use asset_loader::AssetLoaderPlugin;
+use asteroids::AsteroidPlugin;
 use bevy::prelude::*;
 use camera::CameraPlugin;
 use debug::DebugPlugin;
@@ -21,10 +23,11 @@ fn main() {
         })
         .add_plugins(DefaultPlugins)
         // User configurated Plugins.
-        .add_plugins(CameraPlugin)
-        .add_plugins(SpaceshipPlugin)
-        .add_plugins(AstroidPlugin)
+        .add_plugins(AssetLoaderPlugin)
         .add_plugins(MovementPlugin)
         .add_plugins(DebugPlugin)
+        .add_plugins(SpaceshipPlugin)
+        .add_plugins(AsteroidPlugin)
+        .add_plugins(CameraPlugin)
         .run();
 }
