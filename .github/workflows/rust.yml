@@ -16,6 +16,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+
+    # the mold linker drastically decreases the compilation time.
+    - uses: rui314/setup-mold@v1
     
     - name: Build
       run: cargo build --verbose
